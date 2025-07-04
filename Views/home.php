@@ -141,16 +141,25 @@ $personajes = $personaje->listar();
             </div>
             <div class="mb-2">
                 <label>Nivel:</label>
+                <?php
+                $niveles = [
+                    0 => 'Sin rango',
+                    1 => 'Genin',
+                    2 => 'Chunnin',
+                    3 => 'Jounin',
+                    4 => 'Anbu',
+                    5 => 'Kage'
+                ];
+                $nivelSeleccionado = $data['nivel'] ?? '';
+                ?>
+
                 <select name="nivel" class="form-select" required>
-                    <?php
-                    $niveles = ['Sin rango', 'Genin', 'Chunnin', 'Jounin', 'Anbu', 'Kage'];
-                    $nivelSeleccionado = $data['nivel'] ?? '';
-                    foreach ($niveles as $nivel) {
-                        $selected = ($nivelSeleccionado === $nivel) ? 'selected' : '';
-                        echo "<option value=\"$nivel\" $selected>$nivel</option>";
-                    }
-                    ?>
+                    <?php foreach ($niveles as $valor => $texto): ?>
+                        <?php $selected = ((int)$nivelSeleccionado === $valor) ? 'selected' : ''; ?>
+                        <option value="<?= $valor ?>" <?= $selected ?>><?= $texto ?></option>
+                    <?php endforeach; ?>
                 </select>
+
             </div>
 
 </div>

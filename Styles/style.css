@@ -1,5 +1,5 @@
-.color-pink {
-  background-color: pink;
+.color-naranja {
+  background-color: orange;
 }
 
 html,
@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  display: flex;
+  display: flex;  
   flex-direction: column;
   justify-content: space-between;
 }
